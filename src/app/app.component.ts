@@ -17,19 +17,13 @@ export class AppComponent {
    new Task('Begin brainstorming possible JavaScript group projects',2),
    new Task('Add README file to last few Angular repos on GitHub',2)
   ]
-  selectedTask: Task = this.tasks[0];
+  selectedTask: null;
 
   editTask(clickedTask) {
-      this.selectedTask = clickedTask;
+    this.selectedTask = clickedTask;
     }
+    isDone(thisTask){}
 
-  isDone(thisTask: Task) {
-    if(thisTask.done) {
-      alert('This task is done!');
-    } else {
-      alert("This task is not done. Better get on it!");
-    }
-  }
   priorityColor(currentTask) {
     if (currentTask.priority === 3){
       return "bg-danger";
@@ -38,6 +32,9 @@ export class AppComponent {
     } else {
       return "bg-info";
     }
+  }
+  finishedEditing() {
+    this.selectedTask = null;
   }
 
 }
