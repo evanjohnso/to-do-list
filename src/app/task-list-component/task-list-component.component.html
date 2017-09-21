@@ -1,3 +1,10 @@
-<p>
-  task-list-component works!
-</p>
+<ul>
+  <li
+    *ngFor="let currentTask of childTaskList"
+    (click)="isDone(currentTask)"
+    >{{currentTask.description}}
+    <button
+       (click)="editButtonHasBeenClicked(currentTask)"
+        class="btn btn-warning">Edit!</button>
+   </li>
+</ul>

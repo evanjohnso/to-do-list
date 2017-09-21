@@ -1,15 +1,34 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, OnInit, Input, Output, EventEmitter } from '@angular/core';
+import { Task } from './../task.model';
 
 @Component({
-  selector: 'app-task-list-component',
+  selector: 'task-list-component',
   templateUrl: './task-list-component.component.html',
   styleUrls: ['./task-list-component.component.css']
 })
-export class TaskListComponentComponent implements OnInit {
+export class TaskListComponent {
+  @Input() childTaskList: Task[]; //childTaskList can be named
+                                  //anything matching html
+                                  //makes a local variable
+  //this is the actions up portion of the model
+  @Output() clickAndSendIt = new EventEmitter();
 
+  isDone(thisTask){}
+
+  editButtonHasBeenClicked(editThisTask: Task) {
+    this.clickAndSendIt.emit(editThisTask);
+  }
+
+  // priorityColor(currentTask) {
+  //   if (currentTask.priority === 3){
+  //     return "bg-danger";
+  //   } else if (currentTask.priority === 2) {
+  //     return  "bg-warning";
+  //   } else {
+  //     return "bg-info";
+  //   }
+  // }
   constructor() { }
 
-  ngOnInit() {
-  }
 
 }

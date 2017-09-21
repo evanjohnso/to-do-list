@@ -4,12 +4,12 @@ import { FormsModule } from '@angular/forms';
 import { HttpModule } from '@angular/http';
 
 import { AppComponent } from './app.component';
-import { TaskListComponentComponent } from './task-list-component/task-list-component.component';
+import { TaskListComponent } from './task-list-component/task-list-component.component';
 
 @NgModule({
   declarations: [
     AppComponent,
-    TaskListComponentComponent
+    TaskListComponent
   ],
   imports: [
     BrowserModule,
