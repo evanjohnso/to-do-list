@@ -26,4 +26,7 @@ export class AppComponent {
   finishedEditing() {
     this.selectedTask = null;
   }
+  addNewTask(newTask) {
+    this.masterTaskList.push(newTask);
+  }
 }
