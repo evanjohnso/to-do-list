@@ -13,6 +13,15 @@ export class TaskListComponent {
   //this is the actions up portion of the model
   @Output() clickAndSendIt = new EventEmitter();
 
+  filterByCompletenessOfTasks: string = "incompleteTasks";
+
+  onChange(menuOption) {
+    this.filterByCompletenessOfTasks = menuOption;
+  }
+  toggleDone(clickedTask: Task, setCompleteness: boolean) {
+     clickedTask.done = setCompleteness;
+   }
+
   isDone(thisTask){}
 
   editButtonHasBeenClicked(editThisTask: Task) {
