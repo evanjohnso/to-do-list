@@ -1,23 +1,16 @@
 <div class="container">
      <h1>To Do List for {{month}}/{{day}}/{{year}}</h1>
      <h3>{{currentFocus}}</h3>
-                      <!-- this is sending the masterTaskList down to the childTaskList -->
-                      <!-- This is the Data Down part -->
-                      <!-- []  is input, data from parent to child -->
-                      <!-- () output, or actions moving out of the child upwards to parent -->
-     <task-list-component [childTaskList]="masterTaskList" (clickAndSendIt)="editTask($event)"></task-list-component>
+    <!-- this is sending the masterTaskList down to the childTaskList -->
+    <!-- This is the Data Down part -->
+    <!-- []  is input, data from parent to child -->
+    <!-- () output, or actions moving out of the child upwards to parent -->
+     <task-list-component [childTaskList]="masterTaskList"
+                          (clickAndSendIt)="editTask($event)">
+     </task-list-component>
      <hr>
-     <div *ngIf="selectedTask">
-       <h3>{{selectedTask.description}}</h3>
-       <p>Task Complete? {{selectedTask.done}}</p>
-       <h3>Edit Task</h3>
-       <label>Enter Task Description:</label>
-       <input [(ngModel)]="selectedTask.description"><br>
-       <label>Enter Task Priority (1-3):</label>
-       <br>
-       <input type="radio" [(ngModel)]="selectedTask.priority" [value]="1">1 (Low Priority)<br>
-       <input type="radio" [(ngModel)]="selectedTask.priority" [value]="2">2 (Medium Priority)<br>
-       <input type="radio" [(ngModel)]="selectedTask.priority" [value]="3">3 (High Priority)
-       <button (click)="finishedEditing()">Done</button>
-    </div>
+     <edit-task [childSelectedTask]="selectedTask"
+                (doneEditingThanks)="finishedEditing()"
+
+     ></edit-task>
 </div>
